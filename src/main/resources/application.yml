@@ -1,0 +1,12 @@
+spring:
+  cache:
+    type: redis
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: 6379
+    password: redis
+
+server:
+  port: 8081
+  error:
+    include-message: always
