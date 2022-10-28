@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: cassandra-config
-  namespace: hello
+  namespace: account-database
   labels:
     app.kubernetes.io/part-of: cassandra
     app.kubernetes.io/component: cassandra-exporter
