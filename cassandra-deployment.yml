@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: account-database  # Sets Deployment name
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: account-database
+  template:
+    metadata:
+      labels:
+        app: account-database
+        version: v1
+    spec:
+      containers:
+        - name: account-database
+          image: cassandra # Sets Image
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 9042  # Exposes container port
+          envFrom:
+            - configMapRef:
+                name: account-db-config
