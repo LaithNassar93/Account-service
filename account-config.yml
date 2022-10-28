@@ -6,4 +6,4 @@ metadata:
     app: account-service
 data:
   REDIS_HOST: redis-master.default.svc.cluster.local
-  SPRING_DATASOURCE_URL: jdbc:cassandra://account-database:9042/
+  CASSANDRA_HOST: jdbc:cassandra://account-database:9042/
