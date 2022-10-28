@@ -59,7 +59,6 @@ jobs:
           gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
       - name: Build Docker Image
         run: |-
-          docker login -u laithnassar93
           docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:$TAG" .
       - name: Publish Docker Image to GCR
         run: |-
