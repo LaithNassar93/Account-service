@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: account-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: account-service
+  template:
+    metadata:
+      labels:
+        app: account-service
+        version: v1
+    spec:
+      containers:
+        - name: account-service
+          image: gcr.io/PROJECT_ID/IMAGE:TAG
+          imagePullPolicy: "Always"
+          ports:
+            - containerPort: 8081
+          envFrom:
+            - configMapRef:
+                name: account-config
+          securityContext:
+            runAsUser: 1000
